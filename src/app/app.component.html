@@ -1,0 +1,60 @@
+<div class="card">
+  <h5 class="card-header text-center font-weight-bold text-uppercase">Leaderboard</h5>
+  <div class="card-body">
+    <div id="table" class="table-editable" *ngIf="LeaderboardList && LeaderboardList.length > 0">
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Rank</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Platform</th>
+          <th class="text-center">Year</th>
+          <th class="text-center">Genre</th>
+          <th class="text-center">Publisher</th>
+          <th class="text-center">Global Scale</th>
+        </tr>
+        <tr *ngFor="let leaderboard of LeaderboardList; let id = index">
+          <td>
+            <span (keyup)="changeValue(id, 'Rank', $event)" (blur)="updateList(id, 'Rank', $event)"
+              contenteditable="true">{{leaderboard.Rank}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'Name', $event)"
+              (blur)="updateList(id, 'Name', $event)">{{leaderboard.Name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'Platform', $event)"
+              (blur)="updateList(id, 'Platform', $event)">{{leaderboard.Platform}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'Year', $event)"
+              (blur)="updateList(id, 'Year', $event)">{{leaderboard.Year}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'Genre', $event)"
+              (blur)="updateList(id, 'Genre', $event)">{{leaderboard.Genre}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'Publisher', $event)"
+              (blur)="updateList(id, 'Publisher', $event)">{{leaderboard.Publisher}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'Global_Sales', $event)"
+              (blur)="updateList(id, 'Global_Sales', $event)">{{leaderboard.Global_Sales}}</span>
+          </td>
+        </tr>
+
+      </table>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item" (click)="pagination('previous')">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item" (click)="pagination('next')">
+            <a class="page-link">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
